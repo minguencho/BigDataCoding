@@ -9,34 +9,43 @@
 import os, re, util4file
 
 total = util4file.open_csvfile('./class2/popSeoul.csv')
+newPop = util4file.switch(total)
 
-#re.sub('pattern','대체,'원본') : 원본에서의 패턴을 대체로 바꿔줌
+"""i = newPop[1]
 
-result = []
+for i in newPop:
+    foreign = 0
+    try :
+        #round(값, n) : n의 자리까지 반올림
+        foreign = round(i[2]/(i[1]+i[2])*100,1)
+        print(i[0],foreign)
+    except :
+        pass
+print('-----end-----')"""
 
-# search는 찾으면 숫자를 돌려준다.
-for i in total:
-    #행 하나를 위한 임시 리스트 생성
-    in_list = []
-    for j in i:
-        try :
-            k = i[i.index(j)] = int(re.sub(',','',j))
-            in_list.append(k)
-        except:
-            k = i[i.index(j)]
-            in_list.append(k)
-            pass
-        
-        """
-        #숫자일경우 전처리 후 추가
-        if re.search('\d',j): #정규 표현식 \d : 모든 숫자
-            k = int(re.sub(',','',j))
-            in_list.append(k)
-        
-        #문자일경우 그냥 추가
-        else:
-            in_list.append(j)"""
-    result.append(in_list)
+#외국인 비율이 3(3.0)% 넘을 때만 출력하기
 
-#파일에 작성
-util4file.wirte_csvfile('./class2/popSeoul_edit.csv',result)
+"""for i in newPop:
+    foreign = 0
+    try :
+        #round(값, n) : n의 자리까지 반올림
+        foreign = round(i[2]/(i[1]+i[2])*100,1)
+        if foreign >= 3.0 :
+            print(i[0],foreign)
+    except :
+        pass
+print('-----end-----')
+"""
+#컬럼 추가
+new = [['구','한국인','외국인','외국인 비율']]
+
+for i in newPop:
+    foreign = 0
+    try :
+        #round(값, n) : n의 자리까지 반올림
+        foreign = round(i[2]/(i[1]+i[2])*100,1)
+        new.append([i[0],i[1],i[2],foreign])
+    except :
+        pass
+
+util4file.wirte_csvfile('./class2/newPop.csv', new)

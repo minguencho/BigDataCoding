@@ -22,7 +22,7 @@ for i in apt:
             k = int(re.sub(',','',j))
             in_list.append(k)
         
-        #문자일경우 그냥 추가
+        #문자일경우 그냥 추가lsrm
         else:
             in_list.append(j)"""
     result.append(in_list)
