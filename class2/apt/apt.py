@@ -1,6 +1,6 @@
 import os,re
 import util4file
-apt  = util4file.open_csvfile('./class2/apt_201910.csv')
+apt  = util4file.open_csvfile('./class2/apt//apt_201910.csv')
 result = []
 
 # search는 찾으면 숫자를 돌려준다.
@@ -27,4 +27,4 @@ for i in apt:
             in_list.append(j)"""
     result.append(in_list)
 print(result)
-util4file.wirte_csvfile('./class2/apt_edit.csv',result)
+util4file.wirte_csvfile('./class2/apt/apt_edit.csv',result)

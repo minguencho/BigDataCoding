@@ -8,7 +8,7 @@
 #module
 import os, re, util4file
 
-total = util4file.open_csvfile('./class2/popSeoul.csv')
+total = util4file.open_csvfile('./class2/popseoul/popSeoul.csv')
 newPop = util4file.switch(total)
 
 """i = newPop[1]
@@ -48,4 +48,4 @@ for i in newPop:
     except :
         pass
 
-util4file.wirte_csvfile('./class2/newPop.csv', new)
+util4file.wirte_csvfile('./class2/popseoul/newPop.csv', new)
